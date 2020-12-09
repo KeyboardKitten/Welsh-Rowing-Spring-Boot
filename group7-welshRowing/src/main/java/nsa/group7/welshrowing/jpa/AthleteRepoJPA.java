@@ -5,7 +5,6 @@ import nsa.group7.welshrowing.domain.Athlete;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 
 public interface AthleteRepoJPA extends JpaRepository<Athlete, Long> {
@@ -16,13 +15,14 @@ public interface AthleteRepoJPA extends JpaRepository<Athlete, Long> {
      * @return returns the athletes name
      */
     Athlete findByName(String aName);
+
     /**
      * Finds an athlete by their ID.
      *
      * @param id the id to find
      * @return returns the athlete object.
      */
-    Optional<Athlete> findById(Long id);
+    Athlete findByAthleteID(Long id);
 
     List<Athlete> findByApplicationStatus(Boolean aApplicationStatus);
 
