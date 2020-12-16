@@ -1,5 +1,11 @@
 # https://lucid.app/lucidchart/invitations/accept/fade6f95-af6c-4643-9f07-1e402e18cd19 following schema
 
+CREATE USER 'webAppUser'@'localhost' IDENTIFIED BY 'webAppUserPassword';
+GRANT ALL PRIVILEGES ON * . * TO 'webAppUser'@'localhost';
+FLUSH PRIVILEGES;
+
+
+
 #creates admin user with password adminpassword and gives them all permissions over all tables
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'adminpassword';
 GRANT ALL PRIVILEGES ON * . * TO 'admin'@'localhost';
@@ -237,17 +243,6 @@ AS
 CREATE VIEW interviewAthletes
 AS
   SELECT interviewID, athleteID FROM interview;
-
-SELECT * FROM interviewAthletes;
-
-GRANT SELECT ON crossTrainingAdmins TO 'root'@'localhost';
-GRANT SELECT ON crossTrainingCoaches TO 'coach'@'localhost';
-GRANT SELECT ON crossTrainingAthletes TO 'athlete'@'localhost';
-GRANT SELECT ON interviewAdmins TO 'root'@'localhost';
-GRANT SELECT ON interviewCoaches TO 'coach'@'localhost';
-GRANT SELECT ON interviewAthletes TO 'athlete'@'localhost';
-
-
 
 DELIMITER //
 
@@ -697,4 +692,41 @@ CREATE VIEW userAuditCoach
 AS
 	SELECT deletedDate FROM useraudit;
     
-SHOW GRANTS FOR 'athlete'@'localhost';
+   
+DELIMITER //
+CREATE DEFINER='webAppUser'@'localhost' PROCEDURE user_cnt()
+SQL SECURITY INVOKER
+BEGIN
+SELECT COUNT(*) as total_users FROM mysql.user;
+END;//
+DELIMITER ;
+
+DELIMITER //
+CREATE DEFINER='webAppUser'@'localhost' PROCEDURE find_number_applicants()
+SQL SECURITY INVOKER
+BEGIN
+SELECT COUNT(*) as total_applicants FROM athlete WHERE applicationStatus=1;
+END;//
+DELIMITER ;
+
+DELIMITER //
+CREATE DEFINER='webAppUser'@'localhost' PROCEDURE find_number_coaches()
+SQL SECURITY INVOKER
+BEGIN
+SELECT COUNT(*) as total_coaches FROM coach;
+END;//
+DELIMITER ;
+
+DELIMITER //
+CREATE DEFINER='webAppUser'@'localhost' PROCEDURE find_number_athletes()
+SQL SECURITY INVOKER
+BEGIN
+	SELECT COUNT(*) as total_applicants FROM athlete WHERE applicationStatus=0;
+END;//
+DELIMITER ;
+
+GRANT EXECUTE ON PROCEDURE welshrowing.find_number_athletes TO 'webAppUser'@'localhost';
+GRANT EXECUTE ON PROCEDURE welshrowing.find_number_coaches TO 'webAppUser'@'localhost';
+GRANT EXECUTE ON PROCEDURE welshrowing.find_number_applicants TO 'webAppUser'@'localhost';
+GRANT EXECUTE ON PROCEDURE welshrowing.user_cnt TO 'webAppUser'@'localhost';
+GRANT INSERT ON welshrowing.* TO 'webAppUser'@'localhost';
