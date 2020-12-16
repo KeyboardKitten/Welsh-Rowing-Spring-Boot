@@ -3,9 +3,6 @@ package nsa.group7.welshrowing.domain;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Provides a set of methods for managing and retrieving Athlete objects.
- */
 public interface AthleteAuditor {
 
     /**

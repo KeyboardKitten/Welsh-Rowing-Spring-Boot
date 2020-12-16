@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 import java.util.List;
 
-/**
- * Provides a set of methods for serving and handling Coach data.
- */
 @Controller
 public class CoachDashboardController {
 
@@ -47,7 +44,7 @@ public class CoachDashboardController {
     @GetMapping("coach-dashboard/{id}")
     public String coachDashboard(@PathVariable Long id, Model name) {
         Applicant aCoachDashboard = coachAuditor.findApplicantById(id).get();
-        CoachDashboard coachDashboardForm = new CoachDashboard(aCoachDashboard.getName(), "Welcome to your dashboard!");
+        coachDashboard coachDashboardForm = new coachDashboard(aCoachDashboard.getName(), "Welcome to your dashboard!");
         ;
         name.addAttribute("coachName", coachDashboardForm);
 

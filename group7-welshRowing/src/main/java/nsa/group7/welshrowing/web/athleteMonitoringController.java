@@ -5,10 +5,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class athleteDashboardController {
-    @GetMapping("athlete-dashboard")
-    public String athleteDashboard(Model model){
-        model.addAttribute(" ");
-        return "athleteDashboard";
+public class athleteMonitoringController {
+
+    @GetMapping("/coachdashboard/athletemonitoring")
+    public String athleteMonitoring(){
+
+        return "athleteMorningMonitoring";
+
     }
+
+
+
 }

@@ -2,9 +2,6 @@ package nsa.group7.welshrowing.domain;
 
 import java.util.Optional;
 
-/**
- * Provides a set of methods for managing and retrieving Cross Training Workout objects.
- */
 public interface crossTrainingAuditor {
 
     /**

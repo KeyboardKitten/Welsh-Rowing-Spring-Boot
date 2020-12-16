@@ -2,9 +2,6 @@ package nsa.group7.welshrowing.domain;
 
 import java.util.Optional;
 
-/**
- * Provides a set of methods for saving and decrypting anthropometric data.
- */
 public interface AnthropometryAuditor {
     /**
      * Method that saves all information of an anthropometric object.

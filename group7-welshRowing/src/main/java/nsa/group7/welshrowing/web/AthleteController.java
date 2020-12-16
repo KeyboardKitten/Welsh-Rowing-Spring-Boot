@@ -24,9 +24,6 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Provides a set of methods for serving and handling Athlete data.
- */
 @Controller
 public class AthleteController {
 

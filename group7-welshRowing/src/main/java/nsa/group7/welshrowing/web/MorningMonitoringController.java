@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-/**
- * Provides a set of methods for serving and handling Morning Monitoring data.
- */
 @Controller
 public class MorningMonitoringController {
 

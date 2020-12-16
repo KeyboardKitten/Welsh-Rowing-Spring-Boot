@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class crossTrainingTest {
 
     @Autowired
-    private CrossTrainingRepoJPA crossTrainingRepoJPA;
+    private crossTrainingRepoJPA crossTrainingRepoJPA;
 
     @Autowired
     private AthleteRepoJPA athleteRepoJPA;

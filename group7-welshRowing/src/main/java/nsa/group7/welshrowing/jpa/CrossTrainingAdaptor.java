@@ -4,18 +4,14 @@ package nsa.group7.welshrowing.jpa;
 import nsa.group7.welshrowing.domain.CrossTraining;
 import nsa.group7.welshrowing.domain.crossTrainingAuditor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import java.util.Optional;
 
-/**
- * Provides a set of methods for managing and retrieving Cross Training Workout objects.
- */
-@Component
-public class CrossTrainingAdaptor implements crossTrainingAuditor {
+@Controller
+public class crossTrainingAdaptor implements crossTrainingAuditor {
 
-    private final CrossTrainingRepoJPA crossTrainingRepoJPA;
+    private final crossTrainingRepoJPA crossTrainingRepoJPA;
 
     /**
      * Injecting crossTrainingRepoJPA allowing it to communicate with the database.
@@ -23,7 +19,7 @@ public class CrossTrainingAdaptor implements crossTrainingAuditor {
      * @param acrossTrainingRepoJPA - Parameter communicates to the repository JPA.
      */
     @Autowired
-    public CrossTrainingAdaptor(CrossTrainingRepoJPA acrossTrainingRepoJPA) {crossTrainingRepoJPA = acrossTrainingRepoJPA; }
+    public crossTrainingAdaptor(crossTrainingRepoJPA acrossTrainingRepoJPA) {crossTrainingRepoJPA = acrossTrainingRepoJPA; }
 
     /**
      * Uses the auditor to access the reporisity and save the objects within the sessions

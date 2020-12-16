@@ -8,9 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Provides a set of methods for managing and retrieving Athlete objects.
- */
+
 @Component
 public class AthleteJPAAdaptor implements AthleteAuditor {
 

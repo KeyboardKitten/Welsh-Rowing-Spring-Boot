@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 
-/**
- * Provides a set of methods for serving and handling Workout data.
- */
 @Controller
 public class WorkoutController {
 
@@ -40,13 +37,13 @@ public class WorkoutController {
 
     @GetMapping("submit-crosstraining-form/{athleteID}")
     public String submitCrossTrainingForm(@PathVariable Long athleteID, Model model) {
-        CrossTrainingSessionForm crossTrainingSessionForm = new CrossTrainingSessionForm(athleteID,null,null,null,null);
+        crossTrainingSessionForm crossTrainingSessionForm = new crossTrainingSessionForm(athleteID,null,null,null,null);
         model.addAttribute("crossTrainingSessionForm", crossTrainingSessionForm);
         return "crossTrainingForm";
     }
 
     @PostMapping("submit-crosstraining-form")
-    public String postSubmitCrossTrainingForm(@ModelAttribute("crossTrainingSessionForm") CrossTraining crossTraining, @Valid CrossTrainingSessionForm crossTrainingSessionForm, BindingResult bindings, Model model) {
+    public String postSubmitCrossTrainingForm(@ModelAttribute("crossTrainingSessionForm") CrossTraining crossTraining, @Valid crossTrainingSessionForm crossTrainingSessionForm, BindingResult bindings, Model model) {
         if (bindings.hasErrors()) {
             System.out.println("Errors:" + bindings.getFieldErrorCount());
             for (ObjectError oe : bindings.getAllErrors()) {
