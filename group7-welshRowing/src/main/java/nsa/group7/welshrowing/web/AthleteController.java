@@ -53,7 +53,7 @@ public class AthleteController {
         this.env = env;
     }
     @Autowired
-    private JavaMailSender sender;
+    private  JavaMailSender sender;
 
     /**
      * Allows a user to create a new account, automatically assumes user is an applicant
