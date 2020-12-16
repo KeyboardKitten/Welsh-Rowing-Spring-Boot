@@ -9,17 +9,17 @@ import org.springframework.stereotype.Controller;
 import java.util.Optional;
 
 @Controller
-public class crossTrainingAdaptor implements crossTrainingAuditor {
+public class CrossTrainingAdaptor implements crossTrainingAuditor {
 
-    private final crossTrainingRepoJPA crossTrainingRepoJPA;
+    private final CrossTrainingRepoJPA crossTrainingRepoJPA;
 
     /**
-     * Injecting crossTrainingRepoJPA allowing it to communicate with the database.
+     * Injecting CrossTrainingRepoJPA allowing it to communicate with the database.
      *
      * @param acrossTrainingRepoJPA - Parameter communicates to the repository JPA.
      */
     @Autowired
-    public crossTrainingAdaptor(crossTrainingRepoJPA acrossTrainingRepoJPA) {crossTrainingRepoJPA = acrossTrainingRepoJPA; }
+    public CrossTrainingAdaptor(CrossTrainingRepoJPA acrossTrainingRepoJPA) {crossTrainingRepoJPA = acrossTrainingRepoJPA; }
 
     /**
      * Uses the auditor to access the reporisity and save the objects within the sessions
