@@ -696,3 +696,4 @@ AS
 CREATE VIEW userAuditCoach
 AS
 	SELECT deletedDate FROM useraudit;
+    
