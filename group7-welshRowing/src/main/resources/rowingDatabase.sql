@@ -15,7 +15,7 @@ GRANT UPDATE ON welshrowing.* TO 'webappuser'@'localhost';
 GRANT DELETE ON welshrowing.* TO 'webappuser'@'localhost';
 FLUSH PRIVILEGES;
 
-CREATE DATABASE IF NOT EXISTS welshRowing;
+CREATE DATABASE IF NOT EXISTS welshrowing;
 
 USE welshRowing;
 
