@@ -212,9 +212,10 @@ BEGIN
 end if;
 end //
 
+# NOT SUPPORTED // FURTHER INVESTIGATION REQUIRED
 # CREATE TRIGGER mobileNumberValidationLargerAthlete BEFORE INSERT ON Athlete FOR EACH ROW
 # BEGIN
-#     IF (NEW.`mobileNumber` < 12) THEN
+#     IF (NEW.`mobileNumber` > 12) THEN
 #         SIGNAL SQLSTATE VALUE '45000'
 #         SET MESSAGE_TEXT = 'Mobile number too long, please retry';
 #     end if;
@@ -222,9 +223,25 @@ end //
 #
 # CREATE TRIGGER mobileNumberValidationSmallerAthlete BEFORE INSERT ON Athlete FOR EACH ROW
 # BEGIN
-#     IF (NEW.`mobileNumber` > 10) THEN
+#     IF (NEW.`mobileNumber` < 10) THEN
 #         SIGNAL SQLSTATE VALUE '45000'
-#             SET MESSAGE_TEXT = 'Mobile number too long, please retry';
+#             SET MESSAGE_TEXT = 'Mobile number too short, please retry';
+#     end if;
+# end //
+#
+# CREATE TRIGGER telephoneNumberValidationLargerAthlete BEFORE INSERT ON Athlete FOR EACH ROW
+# BEGIN
+#     IF (NEW.`mobileNumber` > 12) THEN
+#         SIGNAL SQLSTATE VALUE '45000'
+#         SET MESSAGE_TEXT = 'Telephone number too long, please retry';
+#     end if;
+# end //
+#
+# CREATE TRIGGER telephoneNumberValidationSmallerAthlete BEFORE INSERT ON Athlete FOR EACH ROW
+# BEGIN
+#     IF (NEW.`mobileNumber` < 10) THEN
+#         SIGNAL SQLSTATE VALUE '45000'
+#             SET MESSAGE_TEXT = 'Telephone number too long, please retry';
 #     end if;
 # end //
 
