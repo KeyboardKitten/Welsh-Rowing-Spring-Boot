@@ -212,9 +212,10 @@ BEGIN
 end if;
 end //
 
+# NOT SUPPORTED // FURTHER INVESTIGATION REQUIRED
 # CREATE TRIGGER mobileNumberValidationLargerAthlete BEFORE INSERT ON Athlete FOR EACH ROW
 # BEGIN
-#     IF (NEW.`mobileNumber` < 12) THEN
+#     IF (NEW.`mobileNumber` > 12) THEN
 #         SIGNAL SQLSTATE VALUE '45000'
 #         SET MESSAGE_TEXT = 'Mobile number too long, please retry';
 #     end if;
@@ -222,9 +223,25 @@ end //
 #
 # CREATE TRIGGER mobileNumberValidationSmallerAthlete BEFORE INSERT ON Athlete FOR EACH ROW
 # BEGIN
-#     IF (NEW.`mobileNumber` > 10) THEN
+#     IF (NEW.`mobileNumber` < 10) THEN
 #         SIGNAL SQLSTATE VALUE '45000'
-#             SET MESSAGE_TEXT = 'Mobile number too long, please retry';
+#             SET MESSAGE_TEXT = 'Mobile number too short, please retry';
+#     end if;
+# end //
+#
+# CREATE TRIGGER telephoneNumberValidationLargerAthlete BEFORE INSERT ON Athlete FOR EACH ROW
+# BEGIN
+#     IF (NEW.`mobileNumber` > 12) THEN
+#         SIGNAL SQLSTATE VALUE '45000'
+#         SET MESSAGE_TEXT = 'Telephone number too long, please retry';
+#     end if;
+# end //
+#
+# CREATE TRIGGER telephoneNumberValidationSmallerAthlete BEFORE INSERT ON Athlete FOR EACH ROW
+# BEGIN
+#     IF (NEW.`mobileNumber` < 10) THEN
+#         SIGNAL SQLSTATE VALUE '45000'
+#             SET MESSAGE_TEXT = 'Telephone number too long, please retry';
 #     end if;
 # end //
 
@@ -725,11 +742,11 @@ GRANT EXECUTE ON PROCEDURE welshRowing.find_completed_morning_data TO 'webappuse
 INSERT INTO user(name,username,password,role) VALUES ("Bob Smith", "userbob", "$2a$10$3/Gbi2ytLNUsPgIoB8oeF.KllszbevLs4IxBmTbtNq48g8qD1PqDy","athlete");
 INSERT INTO user(name,username,password,role) VALUES ("James Dean", "userjames", "$2a$10$Snmk439qzaDR7XYVxGrsbesPrulnJywTOnX20VZP5cL3htcz20nRm","athlete");
 INSERT INTO user(name,username,password,role) VALUES ("Bob Ross", "painterbob", "$2a$10$bmezIT7x2qZeTjCQqZridejp/bWHmr0J1s8.gu9T5zDb31Zey.6Ni","athlete");
-INSERT INTO user(name,username,password,role) VALUES ("Hamid Iqbal", "hamidiqbal", "$2a$10$wIq0AGD1hxeVUm7r9pN5memAdWg37MbqQX3iuk4suMVQcsOVf0nI2","athlete");
-INSERT INTO user(name,username,password,role) VALUES ("Oliver Holdaway", "oliverholdaway", "$2a$10$2TwjPtNdaAuHj0PFXXSO5uIB2E8UIyfyh7hD29ysDyry5PlQPe2RK","athlete");
+INSERT INTO user(name,username,password,role) VALUES ("Mike Ross", "mikeross", "$2a$10$wIq0AGD1hxeVUm7r9pN5memAdWg37MbqQX3iuk4suMVQcsOVf0nI2","athlete");
+INSERT INTO user(name,username,password,role) VALUES ("Harvey Specter", "harveyspecter", "$2a$10$2TwjPtNdaAuHj0PFXXSO5uIB2E8UIyfyh7hD29ysDyry5PlQPe2RK","athlete");
 
 INSERT INTO user(name,username,password,role) VALUES ("Coach Name", "coachaccount", "$2a$10$71z0ZNroD4.hUb5SPz37yeW2zPN7eX43t86jXBQcMdPPwNWeYz6z6","coach");
-INSERT INTO user(name,username,password,role) VALUES ("Nathan Baitup", "nathanbaitup", "$2a$10$aOrE8ZR.BEsL36mbnZAdLu5ZfXZdm9PykwlA29NefyWjvIOyGqzWK","coach");
+INSERT INTO user(name,username,password,role) VALUES ("Lewis Litt", "lewislitt", "$2a$10$aOrE8ZR.BEsL36mbnZAdLu5ZfXZdm9PykwlA29NefyWjvIOyGqzWK","coach");
 
 INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
 VALUES (1,"Bob Smith","Male","2000-10-28",1,"bob@gmail.com","01757507758","02972503307","14 park road","PO13 5HE","Cardiff University",true,"");
@@ -738,9 +755,9 @@ VALUES (2,"James Dean","Male","2000-12-15",1,"james@gmail.com","01757506558","02
 INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
 VALUES (3,"Bob Ross","Male","2000-08-15",0,"bobross@gmail.com","01753206558","02472453307","14 lake road","PO13 5HE","Cardiff University",true,"8 Weeks");
 INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
-VALUES (4,"Hamid Iqbal","Male","2001-08-15",0,"hamid@gmail.com","01753209958","02472453907","14 red close","PO13 5HE","Cardiff University",true,"8 Weeks");
+VALUES (4,"Mike Ross","Male","2001-08-15",0,"miker@gmail.com","01753209958","02472453907","14 red close","PO13 5HE","Cardiff University",true,"8 Weeks");
 INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
-VALUES (5,"Oliver Holdaway","Male","2000-10-27",0,"oliver@gmail.com","01753209658","02473353907","19 red close","PO13 5HE","Cardiff University",true,"8 Weeks");
+VALUES (5,"Harvey Specter","Male","2000-10-27",0,"harverys@gmail.com","01753209658","02473353907","19 red close","PO13 5HE","Cardiff University",true,"8 Weeks");
 
 INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (3,"2020-12-16",56,40,7,4,9,9);
