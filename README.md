@@ -1,10 +1,10 @@
-<h1 align="center">Welcome to Group 7 - Client Project - Welsh Rowing Association</h1>
+<h1 align="center">Welcome to Group 7 - Client Project - Welsh Rowing Association - After Fork - C1935888</h1>
 <p>
 </p>
 
 > Client Project for the Welsh Rowing Association on behalf of group 7
 
-### 🏠 [GitLab Homepage](https://git.cardiff.ac.uk/c1926084/clientproject-group7)
+### 🏠 [GitLab Homepage](https://git.cardiff.ac.uk/c1935888/clientproject-group7-1935888-afterfork/)
 
 ## Database Initialization  / Instructions
 
@@ -36,7 +36,7 @@ java -jar -Dspring.profiles.active=prod -Djasypt.encryptor.password=COMSC JAR_C1
 
 The Spring Boot Application will then start-up and will host on port 8080
 
-## Building and starting the Spring Boot Application
+## Navigation to server homepage
 
 In a browser of your choice navigate to 'HTTPS:/localhost:8080'
 
@@ -48,12 +48,5 @@ You will be directed to the homepage of the application
 ## Run tests
 
 ```sh
-test
+REQURIED
 ```
-
-## Author
-
-👤 **Nathan Baitup, Hamid Iqbal, Oliver Holloway, Joe Baiely**
-
-
-issues board aviable via this link <br />Feel free to check [issues page](https://git.cardiff.ac.uk/c1926084/clientproject-group7/-/issues?scope=all&utf8=%E2%9C%93&state=all). 
