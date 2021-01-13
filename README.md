@@ -2,8 +2,6 @@
 <p>
 </p>
 
-> Client Project for the Welsh Rowing Association on behalf of group 7
-
 ### 🏠 [GitLab Homepage](https://git.cardiff.ac.uk/c1935888/clientproject-group7-1935888-afterfork/)
 
 ## Database Initialization  / Instructions
@@ -45,8 +43,27 @@ In a browser of your choice navigate to 'HTTPS:/localhost:8080'
 You will be directed to the homepage of the application
 
 
-## Run tests
+## Login details
 
-```sh
-REQURIED
-```
+Navigate to 'Login' from the homepage using the header at the top of the page
+
+You'll be asked to enter login infomation, please see below for pre-made login details for two different types of users
+
+**For Athlete's you may choose to create a new account, please see further down**
+
+Athlete
+- Username: userbob
+- Password: PaintingRoss324
+
+Coach
+- Username: coachaccount
+- Password: CoachAccount465
+
+### Creation of new Athlete
+
+To create a new Athlete account, please click on 'Sign-Up' on the webpage header
+
+Fill in all the details required to create an account
+
+After completing all these steps you'll be registered as an Athlete and presented to your personal Athlete Dashboard.
+
