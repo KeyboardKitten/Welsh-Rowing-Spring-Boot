@@ -36,6 +36,10 @@ dependencies {
 //    ACCESSED ON 06/01/2021
 //    URL https://mvnrepository.com/artifact/com.github.ulisesbocchio/jasypt-spring-boot-starter/3.0.3
     compile group: 'com.github.ulisesbocchio', name: 'jasypt-spring-boot-starter', version: '3.0.3'
+// ACCESSED ON 14/01/2021
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+
 
 
     runtime 'com.h2database:h2'
