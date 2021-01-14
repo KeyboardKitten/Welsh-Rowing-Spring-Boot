@@ -745,7 +745,7 @@ INSERT INTO user(name,username,password,role) VALUES ("Bob Ross", "painterbob", 
 INSERT INTO user(name,username,password,role) VALUES ("Mike Ross", "mikeross", "$2a$10$wIq0AGD1hxeVUm7r9pN5memAdWg37MbqQX3iuk4suMVQcsOVf0nI2","athlete");
 INSERT INTO user(name,username,password,role) VALUES ("Harvey Specter", "harveyspecter", "$2a$10$2TwjPtNdaAuHj0PFXXSO5uIB2E8UIyfyh7hD29ysDyry5PlQPe2RK","athlete");
 
-INSERT INTO user(name,username,password,role) VALUES ("Coach Name", "coachaccount", "$2a$10$71z0ZNroD4.hUb5SPz37yeW2zPN7eX43t86jXBQcMdPPwNWeYz6z6","coach");
+INSERT INTO user(name,username,password,role) VALUES ("John Lewis", "coachaccount", "$2a$10$71z0ZNroD4.hUb5SPz37yeW2zPN7eX43t86jXBQcMdPPwNWeYz6z6","coach");
 INSERT INTO user(name,username,password,role) VALUES ("Lewis Litt", "lewislitt", "$2a$10$aOrE8ZR.BEsL36mbnZAdLu5ZfXZdm9PykwlA29NefyWjvIOyGqzWK","coach");
 
 INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
