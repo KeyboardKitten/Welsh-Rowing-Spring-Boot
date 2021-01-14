@@ -42,7 +42,6 @@ In a browser of your choice navigate to 'HTTPS:/localhost:8080'
 
 You will be directed to the homepage of the application
 
-
 ## Login details
 
 Navigate to 'Login' from the homepage using the header at the top of the page
@@ -67,3 +66,42 @@ Fill in all the details required to create an account
 
 After completing all these steps you'll be registered as an Athlete and presented to your personal Athlete Dashboard.
 
+## Tests
+
+### Athlete Dashboard Test
+
+#### 1 - Creation of account
+
+1. Go to 'HTTPS://localhost:8080'
+2. Click 'Sign up' in the Navigation Bar
+3. Fill in the fields
+4. Press 'Create Your Account'
+5. Fill in the extra info (fields marked with '*' are required, you cannot create an account without these fields).
+6. You'll be presented with your own Athlete dashboard
+7. Log out using the 'Log Out' button in the Navigation Bar
+8. Head to 'Login'
+9. Use those creidentals to login again, ensuring that the account has been registered in the database
+
+#### 2 - Filling forms
+
+1. Sign into existing or newly created athlete account
+2. Go to the Morning-Monitoring Form and fill in the details 7 times
+3. Go through each other from and fill in the forms to your preference
+4. You will be able to see the Morning-Monitoring graph updated with the details you entered
+5. Clicking on 'View Data' at the bottom will show the Morning Monitoring data you entered in each entry
+6. If you want to see other data, you can view it by typing 'SELECT * FROM [table name]' in SQL
+
+At the dashboards explore and navigate through the available information and sections, click on each
+section and fill in appropriately if wanted.
+
+### Coach Dashboard Test
+
+#### 1 - Logging into Coach Dashboard and filling forms
+
+1. Go to 'HTTPS://localhost:8080'
+2. Go to 'Login' in the navigation bar
+3. Use the coach login creidnetals above
+
+
+At the coach dashboard explore the available information and sections, click on each section and fill
+appropriately. 
