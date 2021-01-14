@@ -33,8 +33,8 @@
 
         <div class="form-group blu-margin">
             <label for="applicantSelector">Select the applicant name you are testing:</label>
-            <select class="form-control" id="applicantSelector" onchange="setAthleteID()">
-                <option value="0">Select Applicant</option>
+            <select class="form-control" id="applicantSelector" onchange="setAthleteID()" required>
+                <option value="" selected="selected">Select Applicant</option>
                 <option id="selectedAthlete" th:each="applicant : ${applicantTesting}" th:value="${applicant.athleteID}"
                         th:text="${applicant.athleteID}+' : '+${applicant.name}"></option>
             </select>
