@@ -57,10 +57,8 @@ public class WorkoutController {
         if (users.get(users.size() - 1).equals(athleteID)) {
             CrossTrainingSessionForm crossTrainingSessionForm = new CrossTrainingSessionForm(athleteID, null, null, null, null);
             model.addAttribute("crossTrainingSessionForm", crossTrainingSessionForm);
-            return "crossTrainingForm";
-        } else {
-            return "redirect:/404";
-        }
+
+        } return "crossTrainingForm";
     }
 
     /**
@@ -99,10 +97,7 @@ public class WorkoutController {
         if (users.get(users.size() - 1).equals(athleteID)) {
             SessionRPEForm sessionRPEForm = new SessionRPEForm(athleteID);
             model.addAttribute("sessionRPEForm", sessionRPEForm);
-            return "session-rpe-form";
-        } else {
-            return "redirect:/404";
-        }
+        } return "session-rpe-form";
     }
 
     /**
