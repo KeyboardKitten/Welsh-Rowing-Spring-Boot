@@ -51,7 +51,7 @@ You'll be asked to enter login infomation, please see below for pre-made login d
 **For Athlete's you may choose to create a new account, please see further down**
 
 Athlete
-- Username: userbob
+- Username: painterbob
 - Password: PaintingRoss324
 
 Coach
@@ -100,8 +100,12 @@ section and fill in appropriately if wanted.
 
 1. Go to 'HTTPS://localhost:8080'
 2. Go to 'Login' in the navigation bar
-3. Use the coach login creidnetals above
-
-
-At the coach dashboard explore the available information and sections, click on each section and fill
-appropriately. 
+3. Use the coach login credentials above
+4. See which users have not completed morning monitoring, if you filled in Morning Monitoring data for the current date, they won't appear on the list.
+5. Fill in the interview form, selecting an applicant from the drop down menu, to view this infomation use the SQL command 
+```sh
+SELECT * FROM Interview;
+```
+6. View the morning monitoring table for Athete's to see a table view of the Athlete's Morning Monitoring Data
+7. Complete applicant testing via 'Applicant
+8. Approve the newly created user in the applicant test from 'Visit all Applicants'
