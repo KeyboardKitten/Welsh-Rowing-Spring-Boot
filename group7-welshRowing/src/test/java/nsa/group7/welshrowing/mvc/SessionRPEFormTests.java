@@ -29,7 +29,8 @@ public class SessionRPEFormTests {
     @Test
     public void shouldHaveCorrectAthleteID() throws Exception {
         this.mockMvc
-                .perform(get("/submit-session-rpe/1"))
+                .perform(get("/athlete-dashboard/1")
+                .flashAttr("users", 1))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("1")));
     }
