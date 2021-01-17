@@ -26,7 +26,7 @@ This will build the program using gradle, running all tests ensuring that they p
 
 Once buliding is complete you can now run the application using the .jar file
 
-In the Java '.jar' file directory, open Command Prompt and use the command 
+**In the Java '.jar' file directory, open Command Prompt and use the command**
 
 ```sh
 java -jar -Dspring.profiles.active=prod -Djasypt.encryptor.password=COMSC JAR_C1935888.jar
