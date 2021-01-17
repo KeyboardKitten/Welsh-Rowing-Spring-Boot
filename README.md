@@ -67,9 +67,9 @@ Coach
 
 ### Athlete Dashboard Test
 
-## Creation of account can be ran through Selenium, please run file signUptest in "src/test/java/nsa/group7/welshrowing/selenium
+## Creation of account can be ran through Selenium, please run file signUptest in InteliJ "src/test/java/nsa/group7/welshrowing/selenium/ after server is running"
 
-#### 1 - Creation of account
+#### 1 - Creation of account - Selenium version avilable
 
 1. Go to 'HTTPS://localhost:8080'
 2. Click 'Sign up' in the Navigation Bar.
@@ -83,15 +83,10 @@ Coach
 
 #### 2 - Filling forms
 
-1. Sign into existing or newly created athlete account.
-2. Go to the Morning-Monitoring Form and fill in the details 7 times.
+1. Sign into existing or newly created athlete account. -  If you used Selenium for Test 1, the login details are username: johncenapower password: invisibleCena24
+2. Go to the Morning-Monitoring Form and fill in the details, if you fill in this particular form 7 times on different dates you'll see the data refelected in the graph on the dashboard.
 3. Go through each other from and fill in the forms to your preference.
-4. You will be able to see the Morning-Monitoring graph updated with the details you entered.
-5. Clicking on 'View Data' at the bottom will show the Morning Monitoring data you entered in each entry.
-6. If you want to see other data, you can view it by typing 'SELECT * FROM [table name]' in SQL.
-
-At the dashboards explore and navigate through the available information and sections, click on each
-section and fill in appropriately if wanted.
+5. Clicking on 'View Data' at the bottom will show the Morning Monitoring data you entered in each entry in table view.
 
 ### Coach Dashboard Test
 
