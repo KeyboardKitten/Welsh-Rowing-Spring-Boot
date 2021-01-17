@@ -67,7 +67,7 @@ Coach
 
 ### Athlete Dashboard Test
 
-## Creation of account can be ran through Selenium, please run file signUptest in InteliJ "src/test/java/nsa/group7/welshrowing/selenium/ after server is running"
+### Creation of account can be ran through Selenium, please run file signUptest in InteliJ "src/test/java/nsa/group7/welshrowing/selenium/ after server is running"
 
 #### 1 - Creation of account - Selenium version avilable
 
