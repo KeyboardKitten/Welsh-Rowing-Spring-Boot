@@ -67,7 +67,7 @@ Coach
 
 ### Athlete Dashboard Test
 
-### Creation of account can be ran through Selenium, please run file signUpTest in InteliJ "src/test/java/nsa/group7/welshrowing/selenium/ after server is running"
+### Creation of account can be ran through Selenium, please run file signUptest in InteliJ "src/test/java/nsa/group7/welshrowing/selenium/ after server is running"
 
 #### 1 - Creation of account - Selenium version avilable
 
@@ -95,8 +95,8 @@ Coach
 1. Go to 'HTTPS://localhost:8080'
 2. Go to 'Login' in the navigation bar.
 3. Use the coach login credentials above - You'll see you're logged in as a coach under the name 'John Lewis' at the top of the coach dashboard.
-4. See which users have not completed morning monitoring, if you filled in Morning Monitoring data for the current date, they won't appear on the list.
+4. See which users have not completed morning monitoring, if you filled in Morning Monitoring data for the current date, they won't appear on the list - You can see the pre-created Athlete account has not filled in Morning Monitoring for today "Bob Ross".
 5. Press Athlete Morning Monitoring to a table list of all the morning monitoring enteries.
-6. Fill in the interview form, selecting an applicant from the drop down menu - You can see the pre-created Athlete account has not filled in Morning Monitoring for today "Bob Ross".
+6. Fill in the interview form, selecting an applicant from the drop down menu 
 7. Complete applicant testing via 'Applicant Testing' button - You can see your Athlete created in the signup process.
 8. Approve or decline the newly created user in the applicant test from 'Visit all Applicants', this process can take a while, go back and enter the page again.
