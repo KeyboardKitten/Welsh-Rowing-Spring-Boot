@@ -1,0 +1,87 @@
+package nsa.group7.welshrowing.selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class signUpTest{
+
+    public static void main(String[] args) throws InterruptedException {
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--no--sandbox");
+    options.addArguments("--ignore-ssl-errors=yes");
+    options.addArguments("--ignore-certificate-errors");
+    System.setProperty("webdriver.chrome.driver", "src\\test\\java\\nsa\\group7\\welshrowing\\selenium\\chromedriver.exe");
+    WebDriver driver = new ChromeDriver(options);
+    driver.get("https://localhost:8080");
+    WebElement linkSignUp;
+    linkSignUp = driver.findElement(By.linkText("Sign Up"));
+    linkSignUp.click();
+    Thread.sleep(1000);
+    WebElement fullNameSignUp;
+    fullNameSignUp = driver.findElement(new By.ById("name"));
+    fullNameSignUp.sendKeys("John Cena");
+    Thread.sleep(1000);
+    WebElement usernameAthlete;
+    usernameAthlete = driver.findElement(new By.ById("username"));
+    usernameAthlete.sendKeys("johncenapower");
+    Thread.sleep(1000);
+    WebElement passwordOne;
+    passwordOne = driver.findElement(new By.ById("password"));
+    passwordOne.sendKeys("invisibleCena24");
+    Thread.sleep(1000);
+    WebElement passwordTwo;
+    passwordTwo = driver.findElement(new By.ById("confirmPassword"));
+    passwordTwo.sendKeys("invisibleCena24");
+    Thread.sleep(1000);
+    WebElement createAccountSubmit;
+    createAccountSubmit = driver.findElement(new By.ById("createAccountSubmit"));
+    createAccountSubmit.click();
+    Thread.sleep(2000);
+    WebElement emailSignUp;
+    emailSignUp = driver.findElement(new By.ById("email"));
+    emailSignUp.sendKeys("johncena1234@gmail.com");
+    Thread.sleep(1000);
+    WebElement genderSelect;
+    genderSelect = driver.findElement(new By.ById("gender1"));
+    genderSelect.click();
+    Thread.sleep(1000);
+    WebElement dateOfBirthSelect;
+    dateOfBirthSelect = driver.findElement(new By.ById("dob"));
+    dateOfBirthSelect.sendKeys("23/04/1977");
+    Thread.sleep(1000);
+    WebElement mobileNumberSignUp;
+    mobileNumberSignUp = driver.findElement(new By.ById("mobileNumber"));
+    mobileNumberSignUp.sendKeys("01189998819");
+    Thread.sleep(1000);
+    WebElement hearFormRadioButtonSignUp;
+    hearFormRadioButtonSignUp = driver.findElement(new By.ById("heardFrom1"));
+    hearFormRadioButtonSignUp.click();
+    Thread.sleep(1000);
+    WebElement updateDetailsSubmit;
+    updateDetailsSubmit = driver.findElement(new By.ById("updateDetailsSubmit"));
+    updateDetailsSubmit.click();
+    Thread.sleep(5000);
+    WebElement linkLogOut;
+    linkLogOut = driver.findElement(By.linkText("Log Out"));
+    linkLogOut.click();
+    Thread.sleep(3000);
+    WebElement linkLogIn;
+    linkLogIn = driver.findElement(By.linkText("Login"));
+    linkLogIn.click();
+    Thread.sleep(2000);
+    usernameAthlete = driver.findElement(new By.ById("username"));
+    usernameAthlete.sendKeys("johncenapower");
+    Thread.sleep(1000);
+    passwordOne = driver.findElement(new By.ById("password"));
+    passwordOne.sendKeys("invisibleCena24");
+    Thread.sleep(2000);
+    WebElement loginSubmitButton;
+    loginSubmitButton = driver.findElement(new By.ById("sumbitlogin"));
+    loginSubmitButton.click();
+    Thread.sleep(5000);
+    driver.quit();
+    }
+}
