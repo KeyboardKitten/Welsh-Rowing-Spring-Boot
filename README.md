@@ -67,6 +67,8 @@ Coach
 
 ### Athlete Dashboard Test
 
+## Creation of account can be ran through Selenium, please run file signUptest in "src/test/java/nsa/group7/welshrowing/selenium
+
 #### 1 - Creation of account
 
 1. Go to 'HTTPS://localhost:8080'

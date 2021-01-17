@@ -45,7 +45,7 @@
             <input class="form-control" th:field="*{password}" type="password"><br>
             <span th:errors="*{password}" th:if="${#fields.hasErrors('password')}">Please enter your password.</span>
             <br>
-            <button class="btn btn-primary" type="submit">Login</button>
+            <button class="btn btn-primary" type="submit" id="sumbitlogin">Login</button>
         </div>
     </form>
 
