@@ -40,6 +40,11 @@ In a browser of your choice navigate to 'HTTPS:/localhost:8080'
 
 **HTTP is disabled, accessing the server via HTTP is forbidden.**
 
+**If you fail to access the HTTPS page due to Chrome blocking please enable the following flags**
+
+Type into the URL bar and enable
+chrome://flags/#allow-insecure-localhost
+
 You will be directed to the homepage of the application.
 
 ## Login details
