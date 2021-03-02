@@ -675,11 +675,11 @@ DELIMITER ;
 
 CREATE VIEW userAuditAdmin
 AS
-SELECT athleteID, deletedDate, deleted_by FROM useraudit;
+SELECT athleteID, deletedDate, deleted_by FROM UserAudit;
 
 CREATE VIEW userAuditCoach
 AS
-SELECT deletedDate FROM useraudit;
+SELECT deletedDate FROM UserAudit;
 
 
 DELIMITER //
