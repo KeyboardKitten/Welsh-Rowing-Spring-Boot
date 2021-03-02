@@ -1,12 +1,12 @@
 # https://lucid.app/lucidchart/invitations/accept/fade6f95-af6c-4643-9f07-1e402e18cd19 following schema
 
-#creates admin user with password adminpassword and gives them all permissions over all tables
+#creates admin User with password adminpassword and gives them all permissions over all tables
 DROP USER IF EXISTS 'admin'@'localhost';
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'adminpassword';
 GRANT ALL PRIVILEGES ON * . * TO 'admin'@'localhost';
 FLUSH PRIVILEGES;
 
-#creates coach user with password coachpassword and gives them all permissions to insert,select,update, and delete on all tables.
+#creates coach User with password coachpassword and gives them all permissions to insert,select,update, and delete on all tables.
     DROP USER IF EXISTS 'webappuser'@'localhost';
 CREATE USER 'webappuser'@'localhost' IDENTIFIED BY 'XuKIB5IN';
 GRANT INSERT ON welshRowing.* TO 'webappuser'@'localhost';
@@ -79,7 +79,7 @@ CREATE TABLE `AthletePreviousSports` (
 );
 
 CREATE TABLE `Interview` (
-                             interviewID INTEGER AUTO_INCREMENT NOT NULL,
+                             InterviewID INTEGER AUTO_INCREMENT NOT NULL,
                              athleteID INTEGER NOT NULL,
                              answer1 VARCHAR(100),
                              answer2 VARCHAR(100),
@@ -105,7 +105,7 @@ CREATE TABLE `Interview` (
                              answer22 int,
                              answer23 int,
                              answer24 int,
-                             PRIMARY KEY PKInterview(interviewID),
+                             PRIMARY KEY PKInterview(InterviewID),
                              FOREIGN KEY FKInterview(athleteID) REFERENCES Athlete(athleteID)
 );
 
@@ -188,17 +188,17 @@ CREATE VIEW crossTrainingAthletes
 AS
 SELECT crossTrainingID, athleteID, dateofSession, typeOfCrossTraining, totalTimeMinutes, totalDistance FROM CrossTraining;
 
-CREATE VIEW interviewAdmins
+CREATE VIEW InterviewAdmins
 AS
-SELECT interviewID, athleteID, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12, answer13, answer14, answer15, answer16, answer17, answer18, answer19, answer20, answer21, answer22, answer23, answer24 FROM interview;
+SELECT InterviewID, athleteID, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12, answer13, answer14, answer15, answer16, answer17, answer18, answer19, answer20, answer21, answer22, answer23, answer24 FROM Interview;
 
-CREATE VIEW interviewCoaches
+CREATE VIEW InterviewCoaches
 AS
-SELECT interviewID, athleteID, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12, answer13, answer14, answer15, answer16, answer17, answer18, answer19, answer20, answer21, answer22, answer23, answer24 FROM interview;
+SELECT InterviewID, athleteID, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12, answer13, answer14, answer15, answer16, answer17, answer18, answer19, answer20, answer21, answer22, answer23, answer24 FROM Interview;
 
-CREATE VIEW interviewAthletes
+CREATE VIEW InterviewAthletes
 AS
-SELECT interviewID, athleteID FROM interview;
+SELECT InterviewID, athleteID FROM Interview;
 
 DELIMITER //
 
@@ -246,10 +246,10 @@ end //
 # end //
 
 # Trigger for validation of Interview questions, making sure they are not null
-# If null will trigger SQL Signal state printing out a message to the user
+# If null will trigger SQL Signal state printing out a message to the User
 # Running for question 1-24
 
-CREATE TRIGGER interviewNullOne BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullOne BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer1 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -257,7 +257,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullTwo BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullTwo BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer2 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -265,7 +265,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullThree BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullThree BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer3 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -273,7 +273,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullFour BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullFour BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer4 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -281,7 +281,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullFive BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullFive BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer5 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -289,7 +289,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullSix BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullSix BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer6 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -297,7 +297,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullSeven BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullSeven BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer7 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -305,7 +305,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullEight BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullEight BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer8 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -313,7 +313,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullNine BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullNine BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer9 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -321,7 +321,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullTen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullTen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer10 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -329,7 +329,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullEleven BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullEleven BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer11 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -337,7 +337,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullTwelve BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullTwelve BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer12 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -345,7 +345,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullThirteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullThirteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer13 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -353,7 +353,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullFourteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullFourteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer14 IS NULL THEN
             SIGNAL SQLSTATE VALUE '45000'
@@ -361,7 +361,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullFifteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullFifteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer15 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -369,7 +369,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullSixteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullSixteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer16 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -377,7 +377,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullSeventeen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullSeventeen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer17 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -385,7 +385,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullEighteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullEighteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer18 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -393,7 +393,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullNineteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullNineteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer19 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -401,7 +401,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullTwenty BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullTwenty BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer20 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -409,7 +409,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullTwentyOne BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullTwentyOne BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer21 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -417,7 +417,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullTwentyTwo BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullTwentyTwo BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer22 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -425,7 +425,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullTwentyThree BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullTwentyThree BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer23 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -433,7 +433,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER interviewNullTwentyFour BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER InterviewNullTwentyFour BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer24 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -489,7 +489,7 @@ DELIMITER //
 
 CREATE TRIGGER athlete_after_delete
     AFTER DELETE
-    ON athlete FOR EACH ROW
+    ON Athlete FOR EACH ROW
 
 BEGIN
 
@@ -516,7 +516,7 @@ DELIMITER ;
 
 CREATE TRIGGER athletetest_after_delete
     AFTER DELETE
-    ON athletetest FOR EACH ROW
+    ON AthleteTest FOR EACH ROW
 
 BEGIN
 
@@ -543,7 +543,7 @@ DELIMITER ;
 
 CREATE TRIGGER crosstraining_after_delete
     AFTER DELETE
-    ON crosstraining FOR EACH ROW
+    ON CrossTraining FOR EACH ROW
 
 BEGIN
 
@@ -570,7 +570,7 @@ DELIMITER ;
 
 CREATE TRIGGER medicaldata_after_delete
     AFTER DELETE
-    ON medicaldata FOR EACH ROW
+    ON MedicalData FOR EACH ROW
 
 BEGIN
 
@@ -595,9 +595,9 @@ DELIMITER ;
 
    DELIMITER //
 
-CREATE TRIGGER morningmonitoring_after_delete
+CREATE TRIGGER MorningMonitoring_after_delete
     AFTER DELETE
-    ON morningmonitoring FOR EACH ROW
+    ON MorningMonitoring FOR EACH ROW
 
 BEGIN
 
@@ -624,7 +624,7 @@ DELIMITER ;
 
 CREATE TRIGGER sessionrpe_after_delete
     AFTER DELETE
-    ON sessionrpe FOR EACH ROW
+    ON SessionRPE FOR EACH ROW
 
 BEGIN
 
@@ -650,7 +650,7 @@ DELIMITER ;
 
 CREATE TRIGGER user_after_delete
     AFTER DELETE
-    ON user FOR EACH ROW
+    ON User FOR EACH ROW
 
 BEGIN
 
@@ -686,7 +686,7 @@ DELIMITER //
 CREATE DEFINER='webappuser'@'localhost' PROCEDURE user_cnt()
 SQL SECURITY INVOKER
 BEGIN
-SELECT COUNT(*) as total_users FROM mysql.user;
+SELECT COUNT(*) as total_users FROM mysql.User;
 END;//
 DELIMITER ;
 
@@ -694,7 +694,7 @@ DELIMITER //
 CREATE DEFINER='webappuser'@'localhost' PROCEDURE find_number_applicants()
 SQL SECURITY INVOKER
 BEGIN
-SELECT COUNT(*) as total_applicants FROM athlete WHERE applicationStatus=1;
+SELECT COUNT(*) as total_applicants FROM Athlete WHERE applicationStatus=1;
 END;//
 DELIMITER ;
 
@@ -710,7 +710,7 @@ DELIMITER //
 CREATE DEFINER='webappuser'@'localhost' PROCEDURE find_number_athletes()
 SQL SECURITY INVOKER
 BEGIN
-SELECT COUNT(*) as total_applicants FROM athlete WHERE applicationStatus=0;
+SELECT COUNT(*) as total_applicants FROM Athlete WHERE applicationStatus=0;
 END;//
 DELIMITER ;
 
@@ -739,67 +739,67 @@ GRANT EXECUTE ON PROCEDURE welshRowing.find_all_athletes TO 'webappuser'@'localh
 GRANT EXECUTE ON PROCEDURE welshRowing.find_completed_morning_data TO 'webappuser'@'localhost';
 
 #inserting dummy data
-INSERT INTO user(name,username,password,role) VALUES ("Bob Smith", "userbob", "$2a$10$3/Gbi2ytLNUsPgIoB8oeF.KllszbevLs4IxBmTbtNq48g8qD1PqDy","athlete");
-INSERT INTO user(name,username,password,role) VALUES ("James Dean", "userjames", "$2a$10$Snmk439qzaDR7XYVxGrsbesPrulnJywTOnX20VZP5cL3htcz20nRm","athlete");
-INSERT INTO user(name,username,password,role) VALUES ("Bob Ross", "painterbob", "$2a$10$bmezIT7x2qZeTjCQqZridejp/bWHmr0J1s8.gu9T5zDb31Zey.6Ni","athlete");
-INSERT INTO user(name,username,password,role) VALUES ("Mike Ross", "mikeross", "$2a$10$wIq0AGD1hxeVUm7r9pN5memAdWg37MbqQX3iuk4suMVQcsOVf0nI2","athlete");
-INSERT INTO user(name,username,password,role) VALUES ("Harvey Specter", "harveyspecter", "$2a$10$2TwjPtNdaAuHj0PFXXSO5uIB2E8UIyfyh7hD29ysDyry5PlQPe2RK","athlete");
+INSERT INTO User(name,username,password,role) VALUES ("Bob Smith", "userbob", "$2a$10$3/Gbi2ytLNUsPgIoB8oeF.KllszbevLs4IxBmTbtNq48g8qD1PqDy","Athlete");
+INSERT INTO User(name,username,password,role) VALUES ("James Dean", "userjames", "$2a$10$Snmk439qzaDR7XYVxGrsbesPrulnJywTOnX20VZP5cL3htcz20nRm","Athlete");
+INSERT INTO User(name,username,password,role) VALUES ("Bob Ross", "painterbob", "$2a$10$bmezIT7x2qZeTjCQqZridejp/bWHmr0J1s8.gu9T5zDb31Zey.6Ni","Athlete");
+INSERT INTO User(name,username,password,role) VALUES ("Mike Ross", "mikeross", "$2a$10$wIq0AGD1hxeVUm7r9pN5memAdWg37MbqQX3iuk4suMVQcsOVf0nI2","Athlete");
+INSERT INTO User(name,username,password,role) VALUES ("Harvey Specter", "harveyspecter", "$2a$10$2TwjPtNdaAuHj0PFXXSO5uIB2E8UIyfyh7hD29ysDyry5PlQPe2RK","Athlete");
 
-INSERT INTO user(name,username,password,role) VALUES ("John Lewis", "coachaccount", "$2a$10$71z0ZNroD4.hUb5SPz37yeW2zPN7eX43t86jXBQcMdPPwNWeYz6z6","coach");
-INSERT INTO user(name,username,password,role) VALUES ("Lewis Litt", "lewislitt", "$2a$10$aOrE8ZR.BEsL36mbnZAdLu5ZfXZdm9PykwlA29NefyWjvIOyGqzWK","coach");
+INSERT INTO User(name,username,password,role) VALUES ("John Lewis", "coachaccount", "$2a$10$71z0ZNroD4.hUb5SPz37yeW2zPN7eX43t86jXBQcMdPPwNWeYz6z6","coach");
+INSERT INTO User(name,username,password,role) VALUES ("Lewis Litt", "lewislitt", "$2a$10$aOrE8ZR.BEsL36mbnZAdLu5ZfXZdm9PykwlA29NefyWjvIOyGqzWK","coach");
 
-INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
+INSERT INTO Athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
 VALUES (1,"Bob Smith","Male","2000-10-28",1,"bob@gmail.com","01757507758","02972503307","14 park road","PO13 5HE","Cardiff University",true,"");
-INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
+INSERT INTO Athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
 VALUES (2,"James Dean","Male","2000-12-15",1,"james@gmail.com","01757506558","02972453307","14 green road","PO13 5HE","Cardiff University",true,"");
-INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
+INSERT INTO Athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
 VALUES (3,"Bob Ross","Male","2000-08-15",0,"bobross@gmail.com","01753206558","02472453307","14 lake road","PO13 5HE","Cardiff University",true,"8 Weeks");
-INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
+INSERT INTO Athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
 VALUES (4,"Mike Ross","Male","2001-08-15",0,"miker@gmail.com","01753209958","02472453907","14 red close","PO13 5HE","Cardiff University",true,"8 Weeks");
-INSERT INTO athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
+INSERT INTO Athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
 VALUES (5,"Harvey Specter","Male","2000-10-27",0,"harverys@gmail.com","01753209658","02473353907","19 red close","PO13 5HE","Cardiff University",true,"8 Weeks");
 
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (3,"2020-12-16",56,40,7,4,9,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (3,"2020-12-17",70,99,6,7,8,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (3,"2020-12-18",55,56,7,4,9,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (3,"2020-12-19",65,70,4,3,7,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (3,"2020-12-20",38,40,7,7,5,5);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (3,"2020-12-21",56,60,2,1,7,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (3,"2020-12-22",56,80,9,9,6,9);
 
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (4,"2020-12-16",67,90,7,4,9,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (4,"2020-12-17",70,99,6,7,8,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (4,"2020-12-18",33,44,7,4,9,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (4,"2020-12-19",65,70,4,3,7,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (4,"2020-12-20",38,40,7,7,5,5);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (4,"2020-12-21",60,70,2,1,7,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (4,"2020-12-22",56,80,9,9,6,9);
 
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (5,"2020-12-16",30,90,7,4,9,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (5,"2020-12-17",56,70,6,7,8,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (5,"2020-12-18",36,43,7,4,9,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (5,"2020-12-19",57,70,4,3,7,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (5,"2020-12-20",38,40,7,7,5,5);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (5,"2020-12-21",50,70,2,1,7,9);
-INSERT INTO morningmonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
+INSERT INTO MorningMonitoring(athleteID,date,walkingHeartRate,standingHeartRate,perceivedShape,perceivedMentalState,sleepQuantityHours,sleepQuality)
 VALUES (5,"2020-12-22",66,80,9,9,6,9);
