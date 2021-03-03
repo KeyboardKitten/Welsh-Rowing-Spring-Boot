@@ -79,7 +79,7 @@ CREATE TABLE `AthletePreviousSports` (
 );
 
 CREATE TABLE `Interview` (
-                             InterviewID INTEGER AUTO_INCREMENT NOT NULL,
+                             interviewID INTEGER AUTO_INCREMENT NOT NULL,
                              athleteID INTEGER NOT NULL,
                              answer1 VARCHAR(100),
                              answer2 VARCHAR(100),
@@ -105,7 +105,7 @@ CREATE TABLE `Interview` (
                              answer22 int,
                              answer23 int,
                              answer24 int,
-                             PRIMARY KEY PKInterview(InterviewID),
+                             PRIMARY KEY PKInterview(interviewID),
                              FOREIGN KEY FKInterview(athleteID) REFERENCES Athlete(athleteID)
 );
 
@@ -188,17 +188,17 @@ CREATE VIEW crossTrainingAthletes
 AS
 SELECT crossTrainingID, athleteID, dateofSession, typeOfCrossTraining, totalTimeMinutes, totalDistance FROM CrossTraining;
 
-CREATE VIEW InterviewAdmins
+CREATE VIEW interviewAdmins
 AS
-SELECT InterviewID, athleteID, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12, answer13, answer14, answer15, answer16, answer17, answer18, answer19, answer20, answer21, answer22, answer23, answer24 FROM Interview;
+SELECT interviewID, athleteID, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12, answer13, answer14, answer15, answer16, answer17, answer18, answer19, answer20, answer21, answer22, answer23, answer24 FROM Interview;
 
-CREATE VIEW InterviewCoaches
+CREATE VIEW interviewCoaches
 AS
-SELECT InterviewID, athleteID, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12, answer13, answer14, answer15, answer16, answer17, answer18, answer19, answer20, answer21, answer22, answer23, answer24 FROM Interview;
+SELECT interviewID, athleteID, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12, answer13, answer14, answer15, answer16, answer17, answer18, answer19, answer20, answer21, answer22, answer23, answer24 FROM Interview;
 
-CREATE VIEW InterviewAthletes
+CREATE VIEW interviewAthletes
 AS
-SELECT InterviewID, athleteID FROM Interview;
+SELECT interviewID, athleteID FROM Interview;
 
 DELIMITER //
 
@@ -212,7 +212,6 @@ BEGIN
 end if;
 end //
 
-# NOT SUPPORTED // FURTHER INVESTIGATION REQUIRED
 # CREATE TRIGGER mobileNumberValidationLargerAthlete BEFORE INSERT ON Athlete FOR EACH ROW
 # BEGIN
 #     IF (NEW.`mobileNumber` > 12) THEN
@@ -249,7 +248,7 @@ end //
 # If null will trigger SQL Signal state printing out a message to the User
 # Running for question 1-24
 
-CREATE TRIGGER InterviewNullOne BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullOne BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer1 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -257,7 +256,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullTwo BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullTwo BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer2 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -265,7 +264,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullThree BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullThree BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer3 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -273,7 +272,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullFour BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullFour BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer4 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -281,7 +280,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullFive BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullFive BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer5 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -289,7 +288,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullSix BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullSix BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer6 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -297,7 +296,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullSeven BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullSeven BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer7 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -305,7 +304,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullEight BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullEight BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer8 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -313,7 +312,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullNine BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullNine BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer9 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -321,7 +320,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullTen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullTen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer10 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -329,7 +328,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullEleven BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullEleven BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer11 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -337,7 +336,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullTwelve BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullTwelve BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer12 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -345,7 +344,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullThirteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullThirteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer13 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -353,7 +352,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullFourteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullFourteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer14 IS NULL THEN
             SIGNAL SQLSTATE VALUE '45000'
@@ -361,7 +360,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullFifteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullFifteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer15 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -369,7 +368,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullSixteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullSixteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer16 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -377,7 +376,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullSeventeen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullSeventeen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer17 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -385,7 +384,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullEighteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullEighteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer18 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -393,7 +392,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullNineteen BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullNineteen BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer19 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -401,7 +400,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullTwenty BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullTwenty BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer20 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -409,7 +408,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullTwentyOne BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullTwentyOne BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer21 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -417,7 +416,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullTwentyTwo BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullTwentyTwo BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer22 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -425,7 +424,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullTwentyThree BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullTwentyThree BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer23 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -433,7 +432,7 @@ BEGIN
 end if;
 end //
 
-CREATE TRIGGER InterviewNullTwentyFour BEFORE INSERT ON Interview FOR EACH ROW
+CREATE TRIGGER interviewNullTwentyFour BEFORE INSERT ON Interview FOR EACH ROW
 BEGIN
     IF NEW.answer24 IS NULL THEN
         SIGNAL SQLSTATE VALUE '45000'
@@ -595,7 +594,7 @@ DELIMITER ;
 
    DELIMITER //
 
-CREATE TRIGGER MorningMonitoring_after_delete
+CREATE TRIGGER morningmonitoring_after_delete
     AFTER DELETE
     ON MorningMonitoring FOR EACH ROW
 
@@ -745,7 +744,7 @@ INSERT INTO User(name,username,password,role) VALUES ("Bob Ross", "painterbob", 
 INSERT INTO User(name,username,password,role) VALUES ("Mike Ross", "mikeross", "$2a$10$wIq0AGD1hxeVUm7r9pN5memAdWg37MbqQX3iuk4suMVQcsOVf0nI2","Athlete");
 INSERT INTO User(name,username,password,role) VALUES ("Harvey Specter", "harveyspecter", "$2a$10$2TwjPtNdaAuHj0PFXXSO5uIB2E8UIyfyh7hD29ysDyry5PlQPe2RK","Athlete");
 
-INSERT INTO User(name,username,password,role) VALUES ("John Lewis", "coachaccount", "$2a$10$71z0ZNroD4.hUb5SPz37yeW2zPN7eX43t86jXBQcMdPPwNWeYz6z6","coach");
+INSERT INTO User(name,username,password,role) VALUES ("Coach Name", "coachaccount", "$2a$10$71z0ZNroD4.hUb5SPz37yeW2zPN7eX43t86jXBQcMdPPwNWeYz6z6","coach");
 INSERT INTO User(name,username,password,role) VALUES ("Lewis Litt", "lewislitt", "$2a$10$aOrE8ZR.BEsL36mbnZAdLu5ZfXZdm9PykwlA29NefyWjvIOyGqzWK","coach");
 
 INSERT INTO Athlete(athleteID,name,gender,DOB,applicationStatus,email,mobileNumber,telephoneNumber,address,postcode,placeOfEducation,interestLetter,postTestResult)
