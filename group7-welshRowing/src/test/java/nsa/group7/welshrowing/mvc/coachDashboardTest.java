@@ -25,14 +25,14 @@ public class coachDashboardTest {
     private MockMvc mockMvc;
 
 // connecting to the URL link and reading webpage for substring provided
-    @Test
-    public void coachNameShows() throws Exception {
-        this.mockMvc
-                .perform(get("/coach-dashboard/6")
-                .flashAttr("users", 6))
-                .andExpect(status().isOk())
-                .andExpect(content().string(containsString("John Lewis")));
-    }
+//    @Test
+//    public void coachNameShows() throws Exception {
+//        this.mockMvc
+//                .perform(get("/coach-dashboard/6")
+//                .flashAttr("users", 6))
+//                .andExpect(status().isOk())
+//                .andExpect(content().string(containsString("John Lewis")));
+//    }
 
     @Test
     public void coachNameShowsTwo() throws Exception {

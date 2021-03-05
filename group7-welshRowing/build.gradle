@@ -2,8 +2,34 @@ plugins {
     id 'org.springframework.boot' version '2.4.0'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
-
+    id 'checkstyle'
+    id 'jacoco'
 }
+checkstyle {
+    toolVersion = 8.25
+    checkstyleTest.enabled = true
+    maxErrors(999)
+}
+
+jacocoTestReport {
+
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.8
+            }
+        }
+    }
+}
+
 
 group = 'nsa.group7'
 version = '0.0.1-SNAPSHOT'
@@ -80,4 +106,12 @@ jar {
                 'Main-Class': 'nsa.group7.welshrowing.WelshRowingProjectApplication'
         )
     }
+}
+
+task buildAndReport {
+    dependsOn build, jacocoTestReport
+}
+
+task building {
+    dependsOn build
 }
