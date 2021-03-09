@@ -79,6 +79,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
 test {
     exclude 'nsa/group7/welshrowing/structurizr/**'
@@ -99,19 +102,6 @@ tasks.register("bootRunProd") {
     finalizedBy("bootRun")
 }
 
-jar {
-    enabled=true
-    manifest {
-        attributes(
-                'Main-Class': 'nsa.group7.welshrowing.WelshRowingProjectApplication'
-        )
-    }
-}
-
 task buildAndReport {
     dependsOn build, jacocoTestReport
-}
-
-task building {
-    dependsOn build
 }
